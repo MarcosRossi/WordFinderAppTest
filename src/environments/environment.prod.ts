@@ -1,3 +1,8 @@
+function getApiUrl() {
+  return "http://localhost:5000/api/wordfinder";
+}
+
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: getApiUrl()
 };

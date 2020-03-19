@@ -1,16 +1,18 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { TestBed, async } from "@angular/core/testing";
+import { AppComponent } from "./app.component";
+import { WordFinderComponent } from "./word-finder/word-finder.component";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { SharedModule } from "src/shared/shared.module";
 
-describe('AppComponent', () => {
+describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+      imports: [SharedModule, HttpClientTestingModule],
+      declarations: [AppComponent, WordFinderComponent]
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
+  it("should create the app", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
@@ -19,13 +21,6 @@ describe('AppComponent', () => {
   it(`should have as title 'WordFinderApp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('WordFinderApp');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to WordFinderApp!');
+    expect(app.title).toEqual("WordFinderApp");
   });
 });

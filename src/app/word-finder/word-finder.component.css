@@ -1,0 +1,21 @@
+.mat-list-item.list:hover{
+    background-color: #3e8e41;
+    color: white;
+}
+
+h5{
+    display: flex;    
+    justify-content: space-between;
+}
+
+div .card-body{
+   min-height: 400px; 
+}
+
+::ng-deep.mat-list-item-content{
+    justify-content: space-between;
+}
+
+::ng-deep.mat-list-item-content span{
+    justify-content: flex-start
+}

@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-12 col-md-6">
+      <div class="card my-2">
+          <div class="card-body">
+            <h5 class="card-title alert alert-info">Dictionary <span class="text-muted">Total({{dictionary.length}})</span></h5>
+            <mat-list *ngFor="let dic of dictionary;let i = index">
+              <mat-list-item class="list">{{ dic }}
+               <span>
+                      <button (click)= "dictionary.splice(i, 1)"  mat-icon-button aria-label="icon">
+                       <mat-icon>delete_outline</mat-icon> 
+                      </button>
+              </span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
+          </div>
+        </div>    
+    </div>
+  
+    <div class="col-12 col-md-6">
+      <div class="card my-2">
+          <div class="card-body">
+            <h5 class="card-title  alert alert-warning">Source<span class="text-muted">Total({{src.length}})</span></h5>
+            <mat-list *ngFor="let data of src;let i = index">
+              <mat-list-item class="list">{{ data }}
+                  <span>
+                      <button (click)="src.splice(i, 1)" mat-icon-button aria-label="icon">
+                       <mat-icon>delete_outline</mat-icon>
+                      </button>
+                  </span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
+          </div>
+        </div>
+    </div>
+  
+  <mat-progress-bar *ngIf="wordFinderService.isLoading" mode="query"> </mat-progress-bar>
+  <div class="col-12 text-center mt-3">
+      <button (click)="search_Click()" class="btn btn-dark">
+          Search Words
+      </button>
+  </div>
+  
+  <div class="col-12">
+      <div class="card my-2">
+          <div class="card-body">
+            <h5 class="card-title  alert alert-secondary">Found Words<span class="text-muted">Total({{founds.length}})</span></h5>
+            <mat-list *ngFor="let found of founds">
+              <mat-list-item>
+                   <div class="d-flex justify-content-center">
+                        <span class="text-info mr-3"><i class="material-icons">done_outline</i></span> {{ found }}   
+                   </div>               
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </mat-list>
+          </div>
+        </div>
+    </div>
+  </div>
